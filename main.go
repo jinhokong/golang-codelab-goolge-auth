@@ -13,6 +13,7 @@ func main() {
 
 	http.HandleFunc("/", RenderIndex)
 	http.HandleFunc("/auth", RenderLogin)
+	http.HandleFunc("/auth/callback", GoogleOAuthCallBack)
 	http.HandleFunc("/profile", RenderProfile)
 	fmt.Printf("Server is listening on %s\n", bind)
 
@@ -46,4 +47,10 @@ func RenderProfile(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	tmpl.Execute(w, nil)
+}
+
+// GoogleOAuthCallBack a
+func GoogleOAuthCallBack(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/profile", http.StatusFound)
+	return
 }
