@@ -3,6 +3,8 @@ package handler
 import (
 	"html/template"
 	"net/http"
+
+	"github.com/golangkorea/codelab/oauth"
 )
 
 var tmpl *template.Template
@@ -18,7 +20,9 @@ func RenderIndex(w http.ResponseWriter, r *http.Request) {
 
 // RenderLogin Just Rendering HTML template
 func RenderLogin(w http.ResponseWriter, r *http.Request) {
-	tmpl.ExecuteTemplate(w, "login.html", nil)
+	state := "randomTest"
+	url := oauth.GoogleAuthorizationURL(state)
+	tmpl.ExecuteTemplate(w, "login.html", url)
 }
 
 // RenderProfile Just Rendering HTML template
