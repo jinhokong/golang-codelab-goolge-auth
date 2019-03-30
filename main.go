@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"text/template"
 )
 
 const bind = ":1333"
@@ -20,6 +21,9 @@ func main() {
 
 // RenderIndex Just Rendering HTML template
 func RenderIndex(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World"))
-	return
+	tmpl, err := template.ParseFiles("templates/index.html")
+	if err != nil {
+		panic(err)
+	}
+	tmpl.Execute(w, nil)
 }
