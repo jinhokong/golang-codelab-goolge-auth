@@ -13,8 +13,8 @@ func init() {
 		ClientSecret: "",
 		RedirectURL:  "http://localhost:1333/auth/callback",
 		Scopes: []string{
-			"https://googleapis.com/auth/userinfo.email",
-			"https://googleapis.com/auth/userinfo.profile",
+			"https://www.googleapis.com/auth/userinfo.email",
+			"https://www.googleapis.com/auth/userinfo.profile",
 		},
 		Endpoint: google.Endpoint,
 	}
