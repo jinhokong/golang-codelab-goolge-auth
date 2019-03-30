@@ -23,3 +23,5 @@ func init() {
 func GoogleAuthorizationURL(state string) string {
 	return GoogleOAuthConf.AuthCodeURL(state)
 }
+
+const GoogleUserInfoAPI = "https://www.googleapis.com/oauth2/v3/userinfo"
