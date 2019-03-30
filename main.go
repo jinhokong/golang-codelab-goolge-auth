@@ -16,7 +16,7 @@ func main() {
 	http.HandleFunc("/auth", handler.RenderLogin)
 	http.HandleFunc("/auth/callback", handler.GoogleOAuthCallBack)
 	http.HandleFunc("/profile", handler.RenderProfile)
-	fmt.Printf("Server is listening on %s\n", bind)
+	fmt.Printf("Server is listening on http://localhost%s\n", bind)
 
 	http.ListenAndServe(bind, nil)
 
